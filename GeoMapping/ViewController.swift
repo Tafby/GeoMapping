@@ -18,7 +18,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setting a region when the map loads, would love to use the users location if I had more time
+        //setting a region when the map loads, would love to use the users location instead
         let region = MKCoordinateRegion(center: self.startingCoord, latitudinalMeters: 20000, longitudinalMeters: 20000)
         map.setRegion(region, animated: false)
         map.delegate = self as MKMapViewDelegate
