@@ -15,6 +15,7 @@
 		987DA6D9236150FA00A90D80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 987DA6D7236150FA00A90D80 /* LaunchScreen.storyboard */; };
 		987DA6E1236237F400A90D80 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987DA6E0236237F400A90D80 /* Destination.swift */; };
 		987DA6E523626BFA00A90D80 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987DA6E423626BFA00A90D80 /* DetailViewController.swift */; };
+		98D18E302363C3B3008895E6 /* Waypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D18E2F2363C3B3008895E6 /* Waypoints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		987DA6DA236150FA00A90D80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		987DA6E0236237F400A90D80 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		987DA6E423626BFA00A90D80 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		98D18E2F2363C3B3008895E6 /* Waypoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waypoints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				987DA6D5236150FA00A90D80 /* Assets.xcassets */,
 				987DA6D7236150FA00A90D80 /* LaunchScreen.storyboard */,
 				987DA6DA236150FA00A90D80 /* Info.plist */,
+				98D18E2F2363C3B3008895E6 /* Waypoints.swift */,
 			);
 			path = GeoMapping;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98D18E302363C3B3008895E6 /* Waypoints.swift in Sources */,
 				987DA6D1236150F700A90D80 /* ViewController.swift in Sources */,
 				987DA6E1236237F400A90D80 /* Destination.swift in Sources */,
 				987DA6E523626BFA00A90D80 /* DetailViewController.swift in Sources */,

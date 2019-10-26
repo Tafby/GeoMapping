@@ -12,11 +12,10 @@ import MapKit
 //parse json into these objects
 struct Destination: Codable {
     var id: Int
+    var title: String
+    var message: String
     var latitude: Double
     var longitude: Double
-    var message: String
-    var radius: Int
-    var title: String
 }
 
 //this is the point on the map using Destination

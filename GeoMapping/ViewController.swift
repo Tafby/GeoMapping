@@ -8,35 +8,44 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class ViewController: UIViewController, MKMapViewDelegate {
-    let apiUrl: String =  "http://localhost:3000/destinations"
-    
-    @IBOutlet weak var map: MKMapView?
+    let apiUrl: String =  "https://codetest.geocaching.com/destinations"
+    let startingCoord = CLLocationCoordinate2D(latitude: 47.608013, longitude: -122.335167)
+
+    @IBOutlet weak var map: MKMapView!
     
     override func viewDidLoad() {
-        map?.delegate = self as? MKMapViewDelegate
         super.viewDidLoad()
+        
+        let region = MKCoordinateRegion(center: self.startingCoord, latitudinalMeters: 20000, longitudinalMeters: 20000)
+        map.setRegion(region, animated: false)
+        map.delegate = self as MKMapViewDelegate
+        
+        //retrieve the json data
         let url = URL(string: self.apiUrl)!
         let decoder = JSONDecoder()
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
                 do {
-                    let destinations = try decoder.decode([Destination].self, from: data)
-                    for d in destinations {
-                        let annotation = DestinationAnnotation(destination: d)
-                        self.map?.addAnnotation(annotation)
+                    let response = try decoder.decode(Waypoints.self, from: data)
+                    for destination in response.waypoints {
+                        let annotation = DestinationAnnotation(destination: destination)
+                        DispatchQueue.main.async {
+                            self.map.addAnnotation(annotation)
+                        }
                     }
-                    
                 } catch {
+                    //Do some error handling messages
                     print(error.localizedDescription)
                 }
             }
         }
         task.resume()
     }
+    
     //callback for annotation selection
-    //TODO: unselect marker when you back, display labels propertly, and refactor
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         //if this is a destinationAnnotation, then show detail view
         if let annotation = view.annotation as? DestinationAnnotation {
